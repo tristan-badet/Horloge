@@ -3,7 +3,18 @@ Horloge = [16, 25, 8]
 seconde = 0
 tupleTime = (int(input("Nouvelle heure:")), int(input("Nouvelles minutes:")), int(input("Nouvelles secondes:")))
 alarmeTuple = (int(input("Heure de l'alarme:")), int(input("Minutes de l'alarme:")), int(input("Secondes de l'alarme:")))
+choice = int(input("1.Choisir le format d'affichage 24 heures.\n2.Choisir le format d'affichage 12 heures:\n"))
 
+# Tentative de pour aller plus loin
+
+def format_heure(choice):
+    if choice == 1:
+        print(f"Heure: {Horloge[0]:02}:{Horloge[1]:02}:{Horloge[2]:02}")
+    elif choice == 2:
+        if Horloge[0] <= 12 and Horloge[1] <= 59 and Horloge[2] <= 59:
+            print(f"Heure: {Horloge[0]:02}:{Horloge[1]:02}:{Horloge[2]:02} AM")
+        elif Horloge[0] > 12:
+            print(f"Heure: {Horloge[0]-12:02}:{Horloge[1]:02}:{Horloge[2]:02} PM")
 
 
 # Deuxième partie de l'exercice, fonction avec tuple
@@ -45,7 +56,7 @@ while True:
                     if Horloge[0] == 24 and Horloge[1] == 0  and Horloge[2] == 0:
                         Horloge[0] = 0
             time.sleep(1)
-            print(f"Heure: {Horloge[0]:02}:{Horloge[1]:02}:{Horloge[2]:02}") 
+            format_heure(choice)
             # Partie alarme 
             alarme(alarmeTuple)
      
